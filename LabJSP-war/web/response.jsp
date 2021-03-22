@@ -36,7 +36,7 @@
 
              <jsp:getProperty name="studentBean" property="name" /> tu edad es
             <%
-                LocalDate birth= LocalDate.parse(request.getParameter("birthdate"), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+                LocalDate birth= LocalDate.parse(request.getParameter("birthdate"), DateTimeFormatter.ofPattern("d/M/y"));
                 out.print(Period.between(birth, LocalDate.now()).getYears()+"");
             %>
         </h1>
