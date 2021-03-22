@@ -22,10 +22,10 @@
         <jsp:setProperty name="studentBean" property="birthdate"/>
         <h1>
             <c:choose>
-                <c:when test="${studentBean.horaActual>=0 && studentBean.horaActual<12}">
+                <c:when test="${studentBean.HORA_ACTUAL>=0 && studentBean.HORA_ACTUAL<12}">
                     Buenos días
                 </c:when>
-                <c:when test="${studentBean.horaActual>=12 && studentBean.horaActual<18}">
+                <c:when test="${studentBean.HORA_ACTUAL>=12 && studentBean.HORA_ACTUAL<18}">
                     Buenas tardes
                 </c:when>
                 <c:otherwise>
@@ -35,10 +35,7 @@
 
 
              <jsp:getProperty name="studentBean" property="name" /> tu edad es
-            <%
-                LocalDate birth= LocalDate.parse(request.getParameter("birthdate"), DateTimeFormatter.ofPattern("d/M/y"));
-                out.print(Period.between(birth, LocalDate.now()).getYears()+"");
-            %>
+             <jsp:getProperty name="studentBean" property="edad" />
         </h1>
             
     </body>

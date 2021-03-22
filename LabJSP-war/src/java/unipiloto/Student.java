@@ -5,7 +5,9 @@
  */
 package unipiloto;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 
 /**
@@ -16,12 +18,14 @@ public class Student
 {
     private String name;
     private String birthdate;
-    private int horaActual;
+    private final int HORA_ACTUAL;
+    private int edad;
     
     public Student(){
         name=null;
         birthdate=null;
-        horaActual= Integer.parseInt(DateTimeFormatter.ofPattern("k").format(LocalDateTime.now()));
+        edad=0;
+        HORA_ACTUAL= Integer.parseInt(DateTimeFormatter.ofPattern("k").format(LocalDateTime.now()));
     }
 
     public String getName() {
@@ -39,9 +43,13 @@ public class Student
     public void setBirthdate(String birthdate) {
         this.birthdate = birthdate;
     }
-    
-    public int getHoraActual()
-    {
-        return horaActual;
+
+    public int getHORA_ACTUAL() {
+        return HORA_ACTUAL;
+    }
+
+    public int getEdad(){
+        LocalDate birth= LocalDate.parse(birthdate, DateTimeFormatter.ofPattern("d/M/y"));
+        return Period.between(birth, LocalDate.now()).getYears();
     }
 }
