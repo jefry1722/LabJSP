@@ -19,12 +19,10 @@ public class Student
     private String name;
     private String birthdate;
     private final int HORA_ACTUAL;
-    private int edad;
     
     public Student(){
         name=null;
         birthdate=null;
-        edad=0;
         HORA_ACTUAL= Integer.parseInt(DateTimeFormatter.ofPattern("k").format(LocalDateTime.now()));
     }
 
