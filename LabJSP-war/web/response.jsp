@@ -5,10 +5,6 @@
     Author     : JEFRY
 --%>
 
-<%@page import="java.time.format.DateTimeFormatter"%>
-<%@page import="java.time.LocalDateTime"%>
-<%@page import="java.time.Period"%>
-<%@page import="java.time.LocalDate"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,12 +13,12 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <jsp:useBean id="studentBean" scope="page" class="unipiloto.Student" />
+        <jsp:useBean id="studentBean" scope="session" class="unipiloto.Student" />
         <jsp:setProperty name="studentBean" property="name"/>
         <jsp:setProperty name="studentBean" property="birthdate"/>
         <h1>
             <c:choose>
-                <c:when test="${studentBean.HORA_ACTUAL>=0 && studentBean.HORA_ACTUAL<12}">
+                <c:when test="${studentBean.HORA_ACTUAL>0 && studentBean.HORA_ACTUAL<12}">
                     Buenos días
                 </c:when>
                 <c:when test="${studentBean.HORA_ACTUAL>=12 && studentBean.HORA_ACTUAL<18}">
